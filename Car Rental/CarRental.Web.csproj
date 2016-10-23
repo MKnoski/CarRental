@@ -202,8 +202,12 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\CarRentalViewModel.cs" />
+    <Compile Include="Models\CarRentalsViewModel.cs" />
+    <Compile Include="Models\CarViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\RentalModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\CarRentalResource.Designer.cs">
       <AutoGen>True</AutoGen>
