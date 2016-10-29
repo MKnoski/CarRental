@@ -313,7 +313,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\CarRentalResource.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>CarRentalResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>

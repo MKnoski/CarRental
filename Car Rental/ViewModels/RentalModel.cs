@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using Car_Rental.Resources;
 
 namespace Car_Rental.ViewModels
 {
@@ -8,19 +9,19 @@ namespace Car_Rental.ViewModels
     public class RentalModel
     {
         [Required]
-        [DisplayName("Data początkowa")]
+        [Display(Name = "StartDateLabel", ResourceType = typeof(CarRentalResource))]
         public DateTime StartDate { get; set; }
 
         [Required]
-        [DisplayName("Data końcowa")]
+        [Display(Name = "EndDateLabel", ResourceType = typeof(CarRentalResource))]
         public DateTime EndDate { get; set; }
 
         [Required]
-        [DisplayName("Miejsce odbioru")]
+        [Display(Name = "ReceptionPlaceLabel", ResourceType = typeof(CarRentalResource))]
         public string ReceptionPlace { get; set; }
 
         [Required]
-        [DisplayName("Miejsce zwrotu")]
+        [Display(Name = "ReturnPlaceLabel", ResourceType = typeof(CarRentalResource))]
         public string ReturnPlace { get; set; }
     }
 }
