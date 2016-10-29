@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace Car_Rental.Models
+namespace Car_Rental.ViewModels
 {
     // TODO wjebac labelki do resourcow
     public class RentalModel

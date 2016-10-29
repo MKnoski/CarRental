@@ -3,12 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Car_Rental.Models;
+using CarRental.Data.Services.Interfaces;
+using Car_Rental.ViewModels;
 
 namespace Car_Rental.Controllers
 {
     public class CarRentalController : Controller
     {
+        private ICarRentalRepository repository;
+
+        public CarRentalController(ICarRentalRepository carRentalRepository)
+        {
+            this.repository = carRentalRepository;
+        }
+
         public ActionResult Index()
         {
             //mock

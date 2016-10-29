@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace Car_Rental.Models
+namespace Car_Rental.ViewModels
 {
     // TODO wjebać labelki do resourcow
     public class CarViewModel

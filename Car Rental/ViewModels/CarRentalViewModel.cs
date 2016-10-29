@@ -1,4 +1,4 @@
-﻿namespace Car_Rental.Models
+﻿namespace Car_Rental.ViewModels
 {
     public class CarRentalViewModel
     {
