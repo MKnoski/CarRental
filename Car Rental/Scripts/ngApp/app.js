@@ -1,0 +1,1 @@
+﻿var carRentalApp = angular.module("carRentalApp", ['ui.bootstrap']);

@@ -1,41 +1,48 @@
-﻿@model Car_Rental.Models.CarRentalsViewModel
-
-@{
+﻿@{
     ViewBag.Title = "Car rental";
 }
 
 <h4>CAR RENTAL</h4>
 
 <div>
-    @foreach (var carRental in Model.CarRentals)
-    {
-        <div>
-            @Html.LabelFor(f => carRental.Car.Type): @carRental.Car.Type
-            @Html.LabelFor(f => carRental.Car.Brand): @carRental.Car.Brand
-            @Html.LabelFor(f => carRental.Car.Model): @carRental.Car.Model
-            @Html.LabelFor(f => carRental.Car.NumberOfSeats): @carRental.Car.NumberOfSeats
-            @Html.LabelFor(f => carRental.Car.PricePerDay): @carRental.Car.PricePerDay
-            @Html.LabelFor(f => carRental.Car.Yearbook): @carRental.Car.Yearbook
-            @Html.LabelFor(f => carRental.Car.EngineCapacity): @carRental.Car.EngineCapacity (@carRental.Car.Power KM)
-        </div>
+    <div ng-app="carRentalApp">
+        <div ng-controller="carRentalController" ng-init="init()">
+            <uib-accordion close-others="true">
+                <div uib-accordion-group class="panel-default" heading="{{carRental.Car.Brand}} {{carRental.Car.Model}}" ng-repeat="carRental in carRentals" is-open="carRental.isOpen">
+                    <div class="col-md-4">
+                        <div style="display: inline-block; min-height: 290px;">
+                            <div uib-datepicker ng-model="newRental.dates[(setDate)]" class="well well-sm" datepicker-options="carRental.datepickerOptions"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <h4>Twoja rezerwacja</h4>
+                        Data rozpoczęcia:
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <input type="radio" aria-label="..."  ng-model="setDate" value="start">
+                            </span>
+                            <input type="date" class="form-control" aria-label="..." ng-model="newRental.dates['start']" ng-change="setDate='start'">
+                        </div>
+                        Data zakończenia:
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <input type="radio" aria-label="..." ng-model="setDate" value="end">
+                            </span>
+                            <input type="date" class="form-control" aria-label="..." ng-model="newRental.dates['end']" ng-change="setDate='end'">
+                        </div>
 
-        <div>
-            <div>
-                @Html.LabelFor(f => carRental.Rental.StartDate) 
-                @Html.EditorFor(e => carRental.Rental.StartDate)
-            </div>
-            <div>
-                @Html.LabelFor(f => carRental.Rental.EndDate)
-                @Html.EditorFor(e => carRental.Rental.EndDate)
-            </div>
-            <div>
-                @Html.LabelFor(f => carRental.Rental.ReceptionPlace)
-                @Html.EditorFor(e => carRental.Rental.ReceptionPlace)
-            </div>
-            <div>
-                @Html.LabelFor(f => carRental.Rental.ReturnPlace)
-                @Html.EditorFor(e => carRental.Rental.ReturnPlace)
-            </div>
+                        <div class="btn btn-default" ng-click="clearDates()">Wyczyść</div>
+                    </div>
+                    <div class="col-md-4">
+                        Typ: {{carRental.Car.Type}}<br />
+                        Liczba siedzeń: {{carRental.Car.NumberOfSeats}}<br />
+                        Cena: {{carRental.Car.PricePerDay}}                        
+                    </div>
+                </div>
+            </uib-accordion>
         </div>
-    }    
+    </div>
 </div>
+@section scripts{
+    @Scripts.Render("~/Scripts/ngApp/controllers/carRentalController.js")
+}

@@ -1,15 +1,17 @@
-﻿namespace Car_Rental.Models
+﻿using System.Collections.Generic;
+
+namespace Car_Rental.Models
 {
     public class CarRentalViewModel
     {
         public CarRentalViewModel()
         {
             this.Car = new CarViewModel();
-            this.Rental = new RentalModel();
+            this.Rentals = new List<RentalModel>();
         }
 
         public CarViewModel Car { get; set; }
 
-        public RentalModel Rental { get; set; }
+        public List<RentalModel> Rentals { get; set; }
     }
 }

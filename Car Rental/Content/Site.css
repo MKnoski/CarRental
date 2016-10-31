@@ -22,3 +22,9 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.full button span {
+    background-color: limegreen;
+    border-radius: 32px;
+    color: black;
+  }
