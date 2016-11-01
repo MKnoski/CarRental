@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using CarRental.Data.Services.Interfaces;
 using Car_Rental.ViewModels;
+using CarRental.Data.Context;
 
 namespace Car_Rental.Controllers
 {
@@ -24,6 +25,7 @@ namespace Car_Rental.Controllers
 
         public JsonResult GetRentals()
         {
+
             var viewModel = new CarRentalsViewModel
             {
                 CarRentals = new List<CarRentalViewModel>
