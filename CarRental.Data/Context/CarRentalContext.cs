@@ -5,7 +5,8 @@ namespace CarRental.Data.Context
 {
     public class CarRentalContext : DbContext 
     {
-        public CarRentalContext() : base ("CarRental")
+        public CarRentalContext() 
+            : base ("CarRental")
         {
 
         }

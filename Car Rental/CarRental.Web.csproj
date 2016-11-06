@@ -224,6 +224,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Mappers\CarRentalProfile.cs" />
+    <Compile Include="Mappers\DtoMappingsProfile.cs" />
+    <Compile Include="Services\CarRentalService.cs" />
+    <Compile Include="Services\Interfaces\ICarRentalService.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
     <Compile Include="ViewModels\CarRentalViewModel.cs" />
     <Compile Include="ViewModels\CarRentalsViewModel.cs" />
@@ -305,7 +308,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="DTOs\" />
-    <Folder Include="Services\Interfaces\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

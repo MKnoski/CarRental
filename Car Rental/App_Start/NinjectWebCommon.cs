@@ -3,6 +3,8 @@ using System.Web;
 using CarRental.Data.Services;
 using CarRental.Data.Services.Interfaces;
 using Car_Rental;
+using Car_Rental.Services;
+using Car_Rental.Services.Interfaces;
 using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 using Ninject;
 using Ninject.Web.Common;
@@ -63,6 +65,7 @@ namespace Car_Rental
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind<ICarRentalRepository>().To<CarRentalRepository>();
+            kernel.Bind<ICarRentalService>().To<CarRentalService>();
         }        
     }
 }

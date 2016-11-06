@@ -1,21 +1,17 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using CarRental.Data.Models;
 
-namespace CarRental.Data.Models
+namespace CarRental.Data.DTOs
 {
-    public class Car
+    public class CarDto
     {
-        [Key]
         public int Id { get; set; }
 
         public string Type { get; set; }
 
-        [Required]
         public string Brand { get; set; }
 
-        [Required]
         public string Model { get; set; }
 
-        [Required]
         public string RegistrationNumber { get; set; }
 
         public string Fuel { get; set; }
@@ -26,7 +22,6 @@ namespace CarRental.Data.Models
 
         public int NumberOfDoors { get; set; }
 
-        [Required]
         public double PricePerDay { get; set; }
 
         public int Yearbook { get; set; }

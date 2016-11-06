@@ -22,10 +22,10 @@ namespace Car_Rental.ViewModels
         public double PricePerDay { get; set; }
 
         [Display(Name = "YearbookLabel", ResourceType = typeof(CarRentalResource))]
-        public string Yearbook { get; set; }
+        public int Yearbook { get; set; }
 
         [Display(Name = "EngineCapacityLabel", ResourceType = typeof(CarRentalResource))]
-        public double EngineCapacity { get; set; }
+        public float EngineCapacity { get; set; }
 
         public int Power { get; set; }
     }

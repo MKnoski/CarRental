@@ -11,17 +11,22 @@ namespace CarRental.Data.Models
 
         [Required]
         public DateTime StartDate { get; set; }
+
         [Required]
         public DateTime EndDate { get; set; }
+
         public string ReceptionPlace { get; set; }
+
         public string ReturnPlace { get; set; }
 
         [ForeignKey("Car")]
         public int CarId { get; set; }
-        public Car Car { get; set; }
+
+        public virtual Car Car { get; set; }
 
         [ForeignKey("Customer")]
         public int CustomerId { get; set; }
-        public Customer Customer { get; set; }
+
+        public virtual Customer Customer { get; set; }
     }
 }

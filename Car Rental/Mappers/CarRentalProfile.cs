@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using CarRental.Data.DTOs;
+using Car_Rental.ViewModels;
 
 namespace Car_Rental.Mappers
 {
@@ -6,8 +8,7 @@ namespace Car_Rental.Mappers
     {
         public CarRentalProfile()
         {
-            // TODO configurate automapper
-            //CreateMap<Foo, FooDto>();
+            CreateMap<CarDto, CarViewModel>();
         }
     }
 }
