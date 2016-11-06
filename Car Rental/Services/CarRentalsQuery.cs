@@ -7,11 +7,11 @@ using Car_Rental.ViewModels;
 
 namespace Car_Rental.Services
 {
-    public class CarRentalService : ICarRentalService
+    public class CarRentalsQuery : ICarRentalsQuery
     {
         private readonly ICarRentalRepository repository;
 
-        public CarRentalService(ICarRentalRepository repository)
+        public CarRentalsQuery(ICarRentalRepository repository)
         {
             this.repository = repository;
         }
@@ -20,10 +20,12 @@ namespace Car_Rental.Services
         {
             var cars = this.repository.GetCars();
 
-            var carRentals = cars.Select(car => new CarRentalViewModel
-            {
-                Car = Mapper.Map<CarViewModel>(car),
-            }).ToList();
+            var carRentals = cars
+                .Select(car => new CarRentalViewModel
+                {
+                    Car = Mapper.Map<CarViewModel>(car)
+                })
+                .ToList();
 
             var viewModel = new CarRentalsViewModel
             {

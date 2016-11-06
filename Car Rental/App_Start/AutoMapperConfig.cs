@@ -9,7 +9,7 @@ namespace Car_Rental
         {
             Mapper.Initialize(cfg =>
             {
-                cfg.AddProfile(new CarRentalProfile());
+                cfg.AddProfile(new ViewModelsMappingProfile());
                 cfg.AddProfile(new DtoMappingsProfile());
             });
         }

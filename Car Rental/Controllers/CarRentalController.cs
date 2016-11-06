@@ -13,11 +13,11 @@ namespace Car_Rental.Controllers
 {
     public class CarRentalController : Controller
     {
-        private readonly ICarRentalService carRentalService;
+        private readonly ICarRentalsQuery carRentalsQuery;
 
-        public CarRentalController(ICarRentalService carRentalService)
+        public CarRentalController(ICarRentalsQuery carRentalsQuery)
         {
-            this.carRentalService = carRentalService;
+            this.carRentalsQuery = carRentalsQuery;
         }
 
         public ActionResult Index()
@@ -27,7 +27,7 @@ namespace Car_Rental.Controllers
 
         public JsonResult GetRentals()
         {
-            var viewModel = this.carRentalService.GetData();
+            var viewModel = this.carRentalsQuery.GetData();
 
             return Json(viewModel, JsonRequestBehavior.AllowGet);
         }

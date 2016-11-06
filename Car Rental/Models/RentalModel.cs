@@ -1,11 +1,9 @@
 ﻿using System;
-using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using Car_Rental.Resources;
 
-namespace Car_Rental.ViewModels
+namespace Car_Rental.Models
 {
-    // TODO wjebac labelki do resourcow
     public class RentalModel
     {
         [Required]

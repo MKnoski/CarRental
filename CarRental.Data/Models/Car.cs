@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace CarRental.Data.Models
 {
@@ -40,5 +41,8 @@ namespace CarRental.Data.Models
         public string AdditionalFeatures { get; set; }
 
         public int Deposit { get; set; }
+
+        public virtual ICollection<Rental> Rentals { get; set; }
+
     }
 }

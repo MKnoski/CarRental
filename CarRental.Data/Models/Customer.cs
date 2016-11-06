@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace CarRental.Data.Models
@@ -30,5 +31,7 @@ namespace CarRental.Data.Models
 
         [Required]
         public int Phone { get; set; }
+
+        public virtual ICollection<Rental> Rentals { get; set; }
     }
 }

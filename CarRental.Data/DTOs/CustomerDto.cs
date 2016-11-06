@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace CarRental.Data.DTOs
 {
@@ -23,5 +24,7 @@ namespace CarRental.Data.DTOs
         public DateTime BirthDate { get; set; }
 
         public int Phone { get; set; }
+
+        public IEnumerable<RentalDto> Rentals { get; set; }
     }
 }

@@ -33,7 +33,7 @@ namespace CarRental.Data.Services
             }
         }
 
-        public void SaveCar(CarDto carDto)
+        public void UpdateCar(CarDto carDto)
         {
             var car = Mapper.Map<Car>(carDto);
 
@@ -89,7 +89,7 @@ namespace CarRental.Data.Services
             }
         }
 
-        public void SaveCustomer(CustomerDto customerDto)
+        public void UpdateCustomer(CustomerDto customerDto)
         {
             var customer = Mapper.Map<Customer>(customerDto);
 
@@ -145,7 +145,7 @@ namespace CarRental.Data.Services
             }
         }
 
-        public void SaveRental(RentalDto rentalDto)
+        public void UpdateRental(RentalDto rentalDto)
         {
             var rental = Mapper.Map<Rental>(rentalDto);
 

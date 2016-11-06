@@ -8,12 +8,12 @@ namespace Car_Rental.Mappers
     {
         public DtoMappingsProfile()
         {
-            base.CreateMap<Car, CarDto>();
-            base.CreateMap<CarDto, Car>();
-            base.CreateMap<CustomerDto, Customer>();
-            base.CreateMap<Customer, CustomerDto>();
-            base.CreateMap<Rental, RentalDto>();
-            base.CreateMap<RentalDto, Rental>();
+            base.CreateMap<Car, CarDto>().MaxDepth(1);
+            base.CreateMap<CarDto, Car>().MaxDepth(1);
+            base.CreateMap<CustomerDto, Customer>().MaxDepth(1);
+            base.CreateMap<Customer, CustomerDto>().MaxDepth(1);
+            base.CreateMap<Rental, RentalDto>().MaxDepth(1);
+            base.CreateMap<RentalDto, Rental>().MaxDepth(1);
         }
     }
 }

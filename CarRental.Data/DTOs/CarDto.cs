@@ -1,4 +1,5 @@
-﻿using CarRental.Data.Models;
+﻿using System.Collections.Generic;
+using CarRental.Data.Models;
 
 namespace CarRental.Data.DTOs
 {
@@ -35,5 +36,8 @@ namespace CarRental.Data.DTOs
         public string AdditionalFeatures { get; set; }
 
         public int Deposit { get; set; }
+
+        public IEnumerable<RentalDto> Rentals { get; set; }
+
     }
 }
