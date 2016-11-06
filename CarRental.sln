@@ -11,16 +11,21 @@ Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
+		SQLServerDB|Any CPU = SQLServerDB|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{2F23C314-3A0F-4B6F-A095-2909E7A7BEA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2F23C314-3A0F-4B6F-A095-2909E7A7BEA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F23C314-3A0F-4B6F-A095-2909E7A7BEA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2F23C314-3A0F-4B6F-A095-2909E7A7BEA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F23C314-3A0F-4B6F-A095-2909E7A7BEA8}.SQLServerDB|Any CPU.ActiveCfg = SQLServerDB|Any CPU
+		{2F23C314-3A0F-4B6F-A095-2909E7A7BEA8}.SQLServerDB|Any CPU.Build.0 = SQLServerDB|Any CPU
 		{9819E380-EDDD-4A5A-A90D-E67C5698ED14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9819E380-EDDD-4A5A-A90D-E67C5698ED14}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9819E380-EDDD-4A5A-A90D-E67C5698ED14}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9819E380-EDDD-4A5A-A90D-E67C5698ED14}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9819E380-EDDD-4A5A-A90D-E67C5698ED14}.SQLServerDB|Any CPU.ActiveCfg = SQLServerDB|Any CPU
+		{9819E380-EDDD-4A5A-A90D-E67C5698ED14}.SQLServerDB|Any CPU.Build.0 = SQLServerDB|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
