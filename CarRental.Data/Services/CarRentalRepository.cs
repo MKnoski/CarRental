@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using CarRental.Data.DTOs;
 using CarRental.Data.Services.Interfaces;
 
@@ -15,7 +16,9 @@ namespace CarRental.Data.Services
         {
             using (var context = new CarRentalContext())
             {
-                var car = context.Cars.FirstOrDefault(x => x.Id.Equals(id));
+                var car = context.Cars
+                    .Include(c => c.Rentals)
+                    .FirstOrDefault(x => x.Id.Equals(id));
                 var mappedCar = Mapper.Map<CarDto>(car);
 
                 return mappedCar;
@@ -26,7 +29,9 @@ namespace CarRental.Data.Services
         {
             using (var context = new CarRentalContext())
             {
-                var cars =  context.Cars.ToList();
+                var cars =  context.Cars
+                    .Include(c => c.Rentals)
+                    .ToList();
                 var mappedCars = Mapper.Map<List<CarDto>>(cars);
 
                 return mappedCars;

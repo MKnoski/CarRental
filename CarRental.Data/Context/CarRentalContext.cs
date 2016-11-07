@@ -8,7 +8,7 @@ namespace CarRental.Data.Context
         public CarRentalContext() 
             : base ("CarRental")
         {
-
+            this.Configuration.LazyLoadingEnabled = false;
         }
 
         public DbSet<Car> Cars { get; set; }

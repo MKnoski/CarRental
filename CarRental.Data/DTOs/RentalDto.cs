@@ -4,12 +4,6 @@ namespace CarRental.Data.DTOs
 {
     public class RentalDto
     {
-        public RentalDto(CarDto car, CustomerDto customer)
-        {
-            this.Car = car;
-            this.Customer = customer;
-        }
-
         public int Id { get; set; }
 
         public DateTime StartDate { get; set; }
@@ -22,10 +16,6 @@ namespace CarRental.Data.DTOs
 
         public int CarId { get; set; }
 
-        public CarDto Car { get; set; }
-
         public int CustomerId { get; set; }
-
-        public CustomerDto Customer { get; set; }
     }
 }
