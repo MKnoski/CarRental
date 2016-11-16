@@ -1,4 +1,4 @@
-﻿carRentalApp.controller('carRentalController', ['$scope', '$http', '$q', function ($scope, $http, $q) {
+﻿carRentalApp.controller('carRentalController', ['$scope', '$http', '$q', function ($scope, $http) {
     var dateExpression = /\/Date\(([0-9]*)\)\//;
     $scope.carRentals = [];
     $scope.newRental = {};
@@ -32,15 +32,14 @@
     }
 
     $scope.init = function () {
-        $http.get("carrental/GetRentals").success(function (data, status, headers, config) {
+        $http.get("carrental/GetRentals").success(function (data) {
             $scope.carRentals = data.CarRentals;
             $scope.carRentals.forEach(function (carRental) {
-                carRental.datepickerOptions = {
-                    dateDisabled: function (data) {
-                        return compareDate(data, carRental.Rentals);
-                    },
-                    customClass: getDayClass
-                }
+                carRental.datepickerOptions = { customClass: getDayClass };
+                if (carRental.Car.CarDetails.Rentals.length > 0)
+                    carRental.datepickerOptions.dateDisabled = function(data) {
+                        return compareDate(data, carRental.Car.CarDetails.Rentals);
+                    };
             });
         });
     }
@@ -48,7 +47,7 @@
     $scope.$watch("newRental.dates['end']", function () {
         $scope.carRentals.forEach(function(carRental) {
             if (carRental.isOpen) {
-                carRental.Rentals.forEach(function (rental) {
+                carRental.Car.CarDetails.Rentals.forEach(function (rental) {
                     var startDateString = rental.StartDate.match(dateExpression)[1];
                     var startDate = new Date(parseInt(startDateString));
                     if (startDate < $scope.newRental.dates['end'] && startDate > $scope.newRental.dates['start'])
@@ -61,7 +60,7 @@
     $scope.$watch("newRental.dates['start']", function () {
         $scope.carRentals.forEach(function (carRental) {
             if (carRental.isOpen) {
-                carRental.Rentals.forEach(function (rental) {
+                carRental.Car.CarDetails.Rentals.forEach(function (rental) {
                     var endDateString = rental.EndDate.match(dateExpression)[1];
                     var endDate = new Date(parseInt(endDateString));
                     if (endDate > $scope.newRental.dates['start'] && endDate < $scope.newRental.dates['end']) {
