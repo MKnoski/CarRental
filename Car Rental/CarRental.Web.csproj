@@ -225,7 +225,10 @@
     </Compile>
     <Compile Include="Mappers\ViewModelsMappingProfile.cs" />
     <Compile Include="Mappers\DtoMappingsProfile.cs" />
+    <Compile Include="Services\CarRentalsCommand.cs" />
     <Compile Include="Services\CarRentalsQuery.cs" />
+    <Compile Include="Services\CarRentalsServiceBase.cs" />
+    <Compile Include="Services\Interfaces\ICarRentalsCommand.cs" />
     <Compile Include="Services\Interfaces\ICarRentalsQuery.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
     <Compile Include="ViewModels\CarDetailsViewModel.cs" />

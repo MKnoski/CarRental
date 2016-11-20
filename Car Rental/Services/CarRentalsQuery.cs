@@ -7,18 +7,16 @@ using Car_Rental.ViewModels;
 
 namespace Car_Rental.Services
 {
-    public class CarRentalsQuery : ICarRentalsQuery
+    public class CarRentalsQuery : CarRentalsServiceBase, ICarRentalsQuery
     {
-        private readonly ICarRentalRepository repository;
-
-        public CarRentalsQuery(ICarRentalRepository repository)
+        public CarRentalsQuery(ICarRentalRepository repository) 
+            : base(repository)
         {
-            this.repository = repository;
         }
 
-        public CarRentalsViewModel GetData()
+        public CarRentalsViewModel GetCarRentals()
         {
-            var cars = this.repository.GetCars();
+            var cars = base.Repository.GetCars();
 
             var carRentals = cars
                 .Select(car => new CarRentalViewModel

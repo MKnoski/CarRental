@@ -38,62 +38,6 @@ namespace CarRental.Data.Services
             }
         }
 
-        public void UpdateCar(CarDto carDto)
-        {
-            var car = Mapper.Map<Car>(carDto);
-
-            using (var context = new CarRentalContext())
-            {
-                context.Cars.Attach(car);
-                context.Entry(car).State = EntityState.Modified;
-                context.SaveChanges();
-            }
-        }
-
-        public void AddCar(CarDto carDto)
-        {
-            var car = Mapper.Map<Car>(carDto);
-
-            using (var context = new CarRentalContext())
-            {
-                context.Cars.Add(car);
-                context.SaveChanges();
-            }
-        }
-
-        public void RemoveCar(CarDto carDto)
-        {
-            var car = Mapper.Map<Car>(carDto);
-
-            using (var context = new CarRentalContext())
-            {
-                context.Cars.Remove(car);
-                context.SaveChanges();
-            }
-        }
-
-        public CustomerDto GetCustomer(int id)
-        {
-            using (var context = new CarRentalContext())
-            {
-                var customer = context.Customers.FirstOrDefault(x => x.Id.Equals(id));
-                var mappedCustomer = Mapper.Map<CustomerDto>(customer);
-
-                return mappedCustomer;
-            }
-        }
-
-        public List<CustomerDto> GetCustomers()
-        {
-            using (var context = new CarRentalContext())
-            {
-                var customers = context.Customers.ToList();
-                var mappedCustomer = Mapper.Map<List<CustomerDto>>(customers);
-
-                return mappedCustomer;
-            }
-        }
-
         public void UpdateCustomer(CustomerDto customerDto)
         {
             var customer = Mapper.Map<Customer>(customerDto);
@@ -117,51 +61,6 @@ namespace CarRental.Data.Services
             }
         }
 
-        public void RemoveCustomer(CustomerDto customerDto)
-        {
-            var customer = Mapper.Map<Customer>(customerDto);
-
-            using (var context = new CarRentalContext())
-            {
-                context.Customers.Remove(customer);
-                context.SaveChanges();
-            }
-        }
-
-        public RentalDto GetRental(int id)
-        {
-            using (var context = new CarRentalContext())
-            {
-                var rental = context.Rentals.FirstOrDefault(x => x.Id.Equals(id));
-                var mappedRental = Mapper.Map<RentalDto>(rental);
-
-                return mappedRental;
-            }
-        }
-
-        public List<RentalDto> GetRentals()
-        {
-            using (var context = new CarRentalContext())
-            {
-                var rentals = context.Rentals.ToList();
-                var mappedRentals = Mapper.Map<List<RentalDto>>(rentals);
-
-                return mappedRentals;
-            }
-        }
-
-        public void UpdateRental(RentalDto rentalDto)
-        {
-            var rental = Mapper.Map<Rental>(rentalDto);
-
-            using (var context = new CarRentalContext())
-            {
-                context.Rentals.Attach(rental);
-                context.Entry(rental).State = EntityState.Modified;
-                context.SaveChanges();
-            }
-        }
-
         public void AddRental(RentalDto rentalDto)
         {
             var rental = Mapper.Map<Rental>(rentalDto);
@@ -172,17 +71,5 @@ namespace CarRental.Data.Services
                 context.SaveChanges();
             }
         }
-
-        public void RemoveRental(RentalDto rentalDto)
-        {
-            var rental = Mapper.Map<Rental>(rentalDto);
-
-            using (var context = new CarRentalContext())
-            {
-                context.Rentals.Remove(rental);
-                context.SaveChanges();
-            }
-        }
-
     }
 }

@@ -4,6 +4,6 @@ namespace Car_Rental.Services.Interfaces
 {
     public interface ICarRentalsQuery
     {
-        CarRentalsViewModel GetData();
+        CarRentalsViewModel GetCarRentals();
     }
 }
