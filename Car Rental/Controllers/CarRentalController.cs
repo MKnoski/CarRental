@@ -13,6 +13,7 @@ using Car_Rental.Services.Interfaces;
 
 namespace Car_Rental.Controllers
 {
+    [Authorize]
     public class CarRentalController : Controller
     {
         private readonly ICarRentalsQuery carRentalsQuery;
@@ -25,12 +26,14 @@ namespace Car_Rental.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public ActionResult Index()
         {
             return View("Index");
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public JsonResult GetRentals()
         {
             var viewModel = this.carRentalsQuery.GetCarRentals();

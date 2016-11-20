@@ -235,7 +235,6 @@
     <Compile Include="ViewModels\CarRentalViewModel.cs" />
     <Compile Include="ViewModels\CarRentalsViewModel.cs" />
     <Compile Include="ViewModels\CarViewModel.cs" />
-    <Compile Include="ViewModels\IdentityModels.cs" />
     <Compile Include="ViewModels\ManageViewModels.cs" />
     <Compile Include="Models\RentalModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
