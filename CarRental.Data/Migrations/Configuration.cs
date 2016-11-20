@@ -11,7 +11,8 @@ namespace CarRental.Data.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationDataLossAllowed = true;
             ContextKey = "CarRental.Data.Context.CarRentalContext";
         }
 
@@ -25,6 +26,7 @@ namespace CarRental.Data.Migrations
                     Model = "500",
                     RegistrationNumber = "DW A56O9",
                     Fuel = "benzynowy",
+                    CarImageUrl = @"http://motozine.pl/wp-content/uploads/2015/07/2fiat5002016.jpg",
                     Transmission = "manualna",
                     Yearbook = 2015,
                     EngineCapacity = 1.2f,
