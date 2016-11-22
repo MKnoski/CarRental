@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using CarRental.Data.DTOs;
 using CarRental.Data.Models;
+using Car_Rental.ViewModels;
 
 namespace Car_Rental.Mappers
 {
@@ -14,6 +15,7 @@ namespace Car_Rental.Mappers
             base.CreateMap<Customer, CustomerDto>();
             base.CreateMap<Rental, RentalDto>();
             base.CreateMap<RentalDto, Rental>();
+            base.CreateMap<RegisterViewModel, CustomerDto>();
         }
     }
 }

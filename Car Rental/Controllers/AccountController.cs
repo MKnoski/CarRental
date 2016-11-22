@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using CarRental.Data.Models;
+using Car_Rental.Services.Interfaces;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
@@ -18,15 +19,18 @@ namespace Car_Rental.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private readonly ICarRentalsCommand carRentalsCommand;
 
-        public AccountController()
+        public AccountController(ICarRentalsCommand carRentalsCommand)
         {
+            this.carRentalsCommand = carRentalsCommand;
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
+        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager, ICarRentalsCommand carRentalsCommand)
         {
             UserManager = userManager;
             SignInManager = signInManager;
+            this.carRentalsCommand = carRentalsCommand;
         }
 
         public ApplicationSignInManager SignInManager
@@ -156,14 +160,10 @@ namespace Car_Rental.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    this.carRentalsCommand.AddCustomer(model);
+
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
-                    // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
-                    // Send an email with this link
-                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
-
                     return RedirectToAction("Index", "CarRental");
                 }
                 AddErrors(result);

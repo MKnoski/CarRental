@@ -33,5 +33,7 @@ namespace CarRental.Data.Models
         public int Phone { get; set; }
 
         public virtual ICollection<Rental> Rentals { get; set; }
+
+        public virtual ApplicationUser User { get; set; }
     }
 }

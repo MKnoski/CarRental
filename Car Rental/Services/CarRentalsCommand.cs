@@ -20,5 +20,12 @@ namespace Car_Rental.Services
 
             base.Repository.AddRental(rentalDto);
         }
+
+        public void AddCustomer(RegisterViewModel model)
+        {
+            var customerDto = Mapper.Map<CustomerDto>(model);
+
+            base.Repository.AddCustomer(customerDto);
+        }
     }
 }
