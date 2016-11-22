@@ -81,7 +81,7 @@
   <ItemGroup>
     <Compile Include="Context\CarRentalContext.cs" />
     <Compile Include="DTOs\CarDto.cs" />
-    <Compile Include="DTOs\CustomerDto.cs" />
+    <Compile Include="DTOs\CustomerDetailsDto.cs" />
     <Compile Include="DTOs\RentalDto.cs" />
     <Compile Include="Migrations\201611061430491_InitialCreate.cs" />
     <Compile Include="Migrations\201611061430491_InitialCreate.Designer.cs">
@@ -91,7 +91,7 @@
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\Car.cs" />
     <Compile Include="Models\Rental.cs" />
-    <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\CustomerDetails.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CarRentalRepository.cs" />
     <Compile Include="Services\Interfaces\ICarRentalRepository.cs" />

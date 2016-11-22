@@ -6,7 +6,7 @@ namespace Car_Rental.Models
 {
     public class RentalModel
     {
-        public int CustomerId { get; set; }
+        public string ApplicationUserId { get; set; }
 
         public int CarId { get; set; }
 

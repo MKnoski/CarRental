@@ -5,6 +5,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using AutoMapper;
 using CarRental.Data.Models;
 using Car_Rental.Services.Interfaces;
 using Microsoft.AspNet.Identity;
@@ -156,12 +157,18 @@ namespace Car_Rental.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var customerDetails = Mapper.Map<CustomerDetails>(model);
+
+                var user = new ApplicationUser
+                {
+                    UserName = model.Email,
+                    Email = model.Email,
+                    CustomerDetails = customerDetails
+                };
+
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    this.carRentalsCommand.AddCustomer(model);
-
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     return RedirectToAction("Index", "CarRental");

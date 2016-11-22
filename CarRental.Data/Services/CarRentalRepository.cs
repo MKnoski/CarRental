@@ -1,7 +1,9 @@
-﻿using CarRental.Data.Context;
+﻿using System;
+using CarRental.Data.Context;
 using CarRental.Data.Models;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
 using System.Linq;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
@@ -29,7 +31,7 @@ namespace CarRental.Data.Services
         {
             using (var context = new CarRentalContext())
             {
-                var cars =  context.Cars
+                var cars = context.Cars
                     .Include(c => c.Rentals)
                     .ToList();
                 var mappedCars = Mapper.Map<List<CarDto>>(cars);
@@ -38,9 +40,9 @@ namespace CarRental.Data.Services
             }
         }
 
-        public void UpdateCustomer(CustomerDto customerDto)
+        public void UpdateCustomer(CustomerDetailsDto customerDetailsDto)
         {
-            var customer = Mapper.Map<Customer>(customerDto);
+            var customer = Mapper.Map<CustomerDetails>(customerDetailsDto);
 
             using (var context = new CarRentalContext())
             {
@@ -50,9 +52,9 @@ namespace CarRental.Data.Services
             }
         }
 
-        public void AddCustomer(CustomerDto customerDto)
+        public void AddCustomer(CustomerDetailsDto customerDetailsDto)
         {
-            var customer = Mapper.Map<Customer>(customerDto);
+            var customer = Mapper.Map<CustomerDetails>(customerDetailsDto);
 
             using (var context = new CarRentalContext())
             {

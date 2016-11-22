@@ -1,21 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+using CarRental.Data.Models;
 
-namespace CarRental.Data.Models
+namespace CarRental.Data.DTOs
 {
-    public class Customer
+    public class CustomerDetailsDto
     {
-        [Key]
         public int Id { get; set; }
 
-        [Required]
         public string FirstName { get; set; }
 
-        [Required]
         public string LastName { get; set; }
 
-        [Required]
         public string LicenseId { get; set; }
 
         public string City { get; set; }
@@ -26,14 +22,10 @@ namespace CarRental.Data.Models
 
         public string Country { get; set; }
 
-        [Required]
         public DateTime BirthDate { get; set; }
 
-        [Required]
         public int Phone { get; set; }
 
-        public virtual ICollection<Rental> Rentals { get; set; }
-
-        public virtual ApplicationUser User { get; set; }
+        public IEnumerable<RentalDto> Rentals { get; set; }
     }
 }

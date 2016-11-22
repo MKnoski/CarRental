@@ -8,8 +8,8 @@ namespace CarRental.Data.Services.Interfaces
     {
         CarDto GetCar(int id);
         List<CarDto> GetCars();
-        void UpdateCustomer(CustomerDto customerDto);
-        void AddCustomer(CustomerDto customerDto);
+        void UpdateCustomer(CustomerDetailsDto customerDetailsDto);
+        void AddCustomer(CustomerDetailsDto customerDetailsDto);
         void AddRental(RentalDto rentalDto);
     }
 }

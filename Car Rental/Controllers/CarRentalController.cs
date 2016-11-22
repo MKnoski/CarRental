@@ -10,6 +10,7 @@ using CarRental.Data.Context;
 using CarRental.Data.Services;
 using Car_Rental.Models;
 using Car_Rental.Services.Interfaces;
+using Microsoft.AspNet.Identity;
 
 namespace Car_Rental.Controllers
 {
@@ -44,8 +45,12 @@ namespace Car_Rental.Controllers
         [HttpPost]
         public ActionResult AddRental(RentalModel model)
         {
-            this.carRentalsCommand.AddCarRental(model);
+            var userId = this.User.Identity.GetUserId();
 
+            model.ApplicationUserId = userId;
+
+            this.carRentalsCommand.AddCarRental(model);
+            
             return new HttpStatusCodeResult(HttpStatusCode.OK);
         }
     }

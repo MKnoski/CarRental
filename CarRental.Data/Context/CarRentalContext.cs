@@ -21,6 +21,6 @@ namespace CarRental.Data.Context
 
         public DbSet<Rental> Rentals { get; set; }
 
-        public DbSet<Customer> Customers { get; set; }
+        public DbSet<CustomerDetails> Customers { get; set; }
     }
 }

@@ -11,11 +11,11 @@ namespace Car_Rental.Mappers
         {
             base.CreateMap<Car, CarDto>();
             base.CreateMap<CarDto, Car>();
-            base.CreateMap<CustomerDto, Customer>();
-            base.CreateMap<Customer, CustomerDto>();
+            base.CreateMap<CustomerDetailsDto, CustomerDetails>();
+            base.CreateMap<CustomerDetails, CustomerDetailsDto>();
             base.CreateMap<Rental, RentalDto>();
             base.CreateMap<RentalDto, Rental>();
-            base.CreateMap<RegisterViewModel, CustomerDto>();
+            base.CreateMap<RegisterViewModel, CustomerDetails>();
         }
     }
 }
