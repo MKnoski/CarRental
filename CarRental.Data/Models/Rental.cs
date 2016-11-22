@@ -24,9 +24,9 @@ namespace CarRental.Data.Models
 
         public virtual Car Car { get; set; }
 
-        [ForeignKey("Customer")]
-        public int CustomerId { get; set; }
+        [ForeignKey("ApplicationUser")]
+        public string ApplicationUserId { get; set; }
 
-        public virtual Customer Customer { get; set; }
+        public virtual ApplicationUser ApplicationUser { get; set; }
     }
 }

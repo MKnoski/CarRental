@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Car_Rental.ViewModels
@@ -79,6 +80,31 @@ namespace Car_Rental.ViewModels
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        public string FirstName { get; set; }
+
+        [Required]
+        public string LastName { get; set; }
+
+        [Required]
+        public string LicenseId { get; set; }
+
+        public string City { get; set; }
+
+        public string Address { get; set; }
+
+        [DataType(DataType.PostalCode)]
+        public string ZipCode { get; set; }
+
+        public string Country { get; set; }
+
+        [Required]
+        [DataType(DataType.Date)]
+        public DateTime BirthDate { get; set; }
+
+        [Required]
+        [DataType(DataType.PhoneNumber)]
+        public int Phone { get; set; }
     }
 
     public class ResetPasswordViewModel

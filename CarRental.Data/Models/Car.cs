@@ -19,6 +19,8 @@ namespace CarRental.Data.Models
         [Required]
         public string RegistrationNumber { get; set; }
 
+        public string CarImageUrl { get; set; }
+
         public string Fuel { get; set; }
 
         public string Transmission { get; set; }

@@ -13,6 +13,8 @@ namespace CarRental.Data.DTOs
 
         public string Model { get; set; }
 
+        public string CarImageUrl { get; set; }
+
         public string RegistrationNumber { get; set; }
 
         public string Fuel { get; set; }
@@ -38,6 +40,5 @@ namespace CarRental.Data.DTOs
         public int Deposit { get; set; }
 
         public IEnumerable<RentalDto> Rentals { get; set; }
-
     }
 }

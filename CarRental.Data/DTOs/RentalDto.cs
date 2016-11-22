@@ -16,6 +16,6 @@ namespace CarRental.Data.DTOs
 
         public int CarId { get; set; }
 
-        public int CustomerId { get; set; }
+        public string ApplicationUserId { get; set; }
     }
 }

@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using CarRental.Data.Models;
 
 namespace CarRental.Data.DTOs
 {
-    public class CustomerDto
+    public class CustomerDetailsDto
     {
         public int Id { get; set; }
 

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CarRental.Data.Models
 {
-    public class Customer
+    public class CustomerDetails
     {
         [Key]
         public int Id { get; set; }
@@ -33,5 +33,6 @@ namespace CarRental.Data.Models
         public int Phone { get; set; }
 
         public virtual ICollection<Rental> Rentals { get; set; }
+
     }
 }
