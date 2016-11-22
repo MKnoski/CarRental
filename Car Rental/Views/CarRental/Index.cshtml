@@ -7,19 +7,78 @@
 <div>
     <div ng-app="carRentalApp">
         <div ng-controller="carRentalController" ng-init="init()">
+            <script type="text/ng-template" id="myModalContent.html">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="modal-title">I'm a modal!</h3>
+                </div>
+                <div class="modal-body" id="modal-body">
+                    @*<ul>
+                        <li ng-repeat="item in $ctrl.items">
+                            <a href="#" ng-click="$event.preventDefault(); $ctrl.selected.item = item">{{ item }}</a>
+                        </li>
+                    </ul>*@
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div style="display: inline-block; min-height: 290px;">
+                                <div uib-datepicker ng-model="newRental.dates[(setDate)]" class="well well-sm" datepicker-options="datepickerOptions"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <h4>Twoja rezerwacja</h4>
+                            Data rozpoczęcia:
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <input type="radio" aria-label="..." ng-model="setDate" value="start">
+                                </span>
+                                <input type="date" class="form-control" aria-label="..." ng-model="newRental.dates['start']" ng-change="setDate='start'">
+                            </div>
+                            Data zakończenia:
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <input type="radio" aria-label="..." ng-model="setDate" value="end">
+                                </span>
+                                <input type="date" class="form-control" aria-label="..." ng-model="newRental.dates['end']" ng-change="setDate='end'">
+                            </div>
+
+                            <div class="btn btn-default" ng-click="clearDates()">Wyczyść</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="button" ng-click="$ctrl.ok()">OK</button>
+                    <button class="btn btn-warning" type="button" ng-click="$ctrl.cancel()">Cancel</button>
+                </div>
+            </script>
+
             <uib-accordion close-others="true">
                 <div uib-accordion-group class="panel-default" heading="{{carRental.Car.Brand}} {{carRental.Car.Model}}" ng-repeat="carRental in carRentals" is-open="carRental.isOpen">
+                    <uib-accordion-heading>
+                        <div class="row row-eq-height" style="position: relative">
+                            <img src="http://fakeimg.pl/350x200/?text={{carRental.Car.Model}}&font=lobster" class="col-lg-3"/>
+                            <div class="col-lg-3">
+                                {{carRental.Car.Brand}} {{carRental.Car.Model}}
+                                <br/>
+                                {{carRental.Car.EngineCapacity}}({{carRental.Car.Power}}KM)
+                            </div>
+                            <div class="col-lg-3">
+                                Dzienny kost: {{carRental.Car.PricePerDay}}
+                                <br/>
+                                Liczba siedzeń: {{carRental.Car.NumberOfSeats}}
+                            </div>
+                        </div>
+                    </uib-accordion-heading>
+
                     <div class="col-md-4">
                         <div style="display: inline-block; min-height: 290px;">
                             <div uib-datepicker ng-model="newRental.dates[(setDate)]" class="well well-sm" datepicker-options="carRental.datepickerOptions"></div>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    @*<div class="col-md-4">
                         <h4>Twoja rezerwacja</h4>
                         Data rozpoczęcia:
                         <div class="input-group">
                             <span class="input-group-addon">
-                                <input type="radio" aria-label="..."  ng-model="setDate" value="start">
+                                <input type="radio" aria-label="..." ng-model="setDate" value="start">
                             </span>
                             <input type="date" class="form-control" aria-label="..." ng-model="newRental.dates['start']" ng-change="setDate='start'">
                         </div>
@@ -32,12 +91,14 @@
                         </div>
 
                         <div class="btn btn-default" ng-click="clearDates()">Wyczyść</div>
-                    </div>
+                    </div>*@
                     <div class="col-md-4">
-                        Typ: {{carRental.Car.Type}}<br />
-                        Liczba siedzeń: {{carRental.Car.NumberOfSeats}}<br />
-                        Cena: {{carRental.Car.PricePerDay}}                        
+                        Typ: {{carRental.Car.Type}}<br/>
+                        Liczba siedzeń: {{carRental.Car.NumberOfSeats}}<br/>
+                        Cena: {{carRental.Car.PricePerDay}}
                     </div>
+                    <div class="btn btn-default" ng-click="openOrderModal($index)">Rezerwacja</div>
+
                 </div>
             </uib-accordion>
         </div>

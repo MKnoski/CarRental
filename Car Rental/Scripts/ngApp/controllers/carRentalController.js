@@ -1,4 +1,4 @@
-﻿carRentalApp.controller('carRentalController', ['$scope', '$http', '$q', function ($scope, $http) {
+﻿carRentalApp.controller('carRentalController', ['$scope', '$http', '$uibModal', function ($scope, $http, $uibModal) {
     var dateExpression = /\/Date\(([0-9]*)\)\//;
     $scope.carRentals = [];
     $scope.newRental = {};
@@ -75,5 +75,35 @@
     $scope.clearDates = function() {
         $scope.newRental.dates['start'] = null;
         $scope.newRental.dates['end'] = null;
+    }
+
+    $scope.datepickerOptions = {dateDisabled: function (data) {
+        return compareDate(data, $scope.currentRentals);
+    }};
+
+    $scope.openOrderModal = function (carId) {
+        $scope.currentRentals = $scope.carRentals[carId].Car.CarDetails.Rentals;
+        var modalInstance = $uibModal.open({
+            animation: true,
+            ariaLabelledBy: 'modal-title',
+            ariaDescribedBy: 'modal-body',
+            templateUrl: 'myModalContent.html',
+      //      controller: 'ModalInstanceCtrl',
+            controllerAs: '$ctrl',
+            size: 'lg',
+            appendTo: undefined,
+            resolve: {
+                items: function () {
+                //    return $ctrl.items;
+                }
+            }
+        });
+
+        modalInstance.result.then(function (selectedItem) {
+            $ctrl.selected = selectedItem;
+        }, function () {
+            $log.info('Modal dismissed at: ' + new Date());
+        });
+
     }
 }]);

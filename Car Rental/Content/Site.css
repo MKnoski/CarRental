@@ -28,3 +28,14 @@ textarea {
     border-radius: 32px;
     color: black;
   }
+
+.row-eq-height {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+}
+
+.modal-lg {
+    width: 900px;
+}
