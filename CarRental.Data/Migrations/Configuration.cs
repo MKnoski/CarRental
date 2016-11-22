@@ -2,12 +2,9 @@ using CarRental.Data.Models;
 
 namespace CarRental.Data.Migrations
 {
-    using System;
-    using System.Data.Entity;
     using System.Data.Entity.Migrations;
-    using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<CarRental.Data.Context.CarRentalContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<Context.CarRentalContext>
     {
         public Configuration()
         {
@@ -16,7 +13,7 @@ namespace CarRental.Data.Migrations
             ContextKey = "CarRental.Data.Context.CarRentalContext";
         }
 
-        protected override void Seed(CarRental.Data.Context.CarRentalContext context)
+        protected override void Seed(Context.CarRentalContext context)
         {
             context.Cars.AddOrUpdate(
                 new Car

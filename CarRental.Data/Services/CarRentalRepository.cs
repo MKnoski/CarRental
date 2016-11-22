@@ -1,12 +1,9 @@
-﻿using System;
-using CarRental.Data.Context;
+﻿using CarRental.Data.Context;
 using CarRental.Data.Models;
 using System.Collections.Generic;
 using System.Data.Entity;
-using System.Data.Entity.Validation;
 using System.Linq;
 using AutoMapper;
-using AutoMapper.QueryableExtensions;
 using CarRental.Data.DTOs;
 using CarRental.Data.Services.Interfaces;
 

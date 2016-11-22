@@ -103,9 +103,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="SQLInsertCarsToCarRental.sql" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Migrations\201611061430491_InitialCreate.resx">
       <DependentUpon>201611061430491_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>

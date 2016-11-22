@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using CarRental.Data.DTOs;
-using CarRental.Data.Models;
 
 namespace CarRental.Data.Services.Interfaces
 {
