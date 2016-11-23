@@ -9,18 +9,13 @@
         <div ng-controller="carRentalController" ng-init="init()">
             <script type="text/ng-template" id="myModalContent.html">
                 <div class="modal-header">
-                    <h3 class="modal-title" id="modal-title">I'm a modal!</h3>
+                    <h3 class="modal-title" id="modal-title">Order a car</h3>
                 </div>
                 <div class="modal-body" id="modal-body">
-                    @*<ul>
-                        <li ng-repeat="item in $ctrl.items">
-                            <a href="#" ng-click="$event.preventDefault(); $ctrl.selected.item = item">{{ item }}</a>
-                        </li>
-                    </ul>*@
                     <div class="row">
                         <div class="col-md-6">
                             <div style="display: inline-block; min-height: 290px;">
-                                <div uib-datepicker ng-model="newRental.dates[(setDate)]" class="well well-sm" datepicker-options="datepickerOptions"></div>
+                                <div uib-datepicker ng-model="$ctrl.newRental.dates[$ctrl.setDate]" ng-model-options="{ allowInvalid: true}" class="well well-sm" datepicker-options="$ctrl.datepickerOptions"></div>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -28,19 +23,19 @@
                             Data rozpoczęcia:
                             <div class="input-group">
                                 <span class="input-group-addon">
-                                    <input type="radio" aria-label="..." ng-model="setDate" value="start">
+                                    <input type="radio" aria-label="..." ng-model="$ctrl.setDate" value="start">
                                 </span>
-                                <input type="date" class="form-control" aria-label="..." ng-model="newRental.dates['start']" ng-change="setDate='start'">
+                                <input type="date" class="form-control" aria-label="..." ng-model="$ctrl.newRental.dates['start']" ng-change="$ctrl.setDate='start'">
                             </div>
                             Data zakończenia:
                             <div class="input-group">
                                 <span class="input-group-addon">
-                                    <input type="radio" aria-label="..." ng-model="setDate" value="end">
+                                    <input type="radio" aria-label="..." ng-model="$ctrl.setDate" value="end">
                                 </span>
-                                <input type="date" class="form-control" aria-label="..." ng-model="newRental.dates['end']" ng-change="setDate='end'">
+                                <input type="date" class="form-control" aria-label="..." ng-model="$ctrl.newRental.dates['end']" ng-change="$ctrl.setDate='end'">
                             </div>
 
-                            <div class="btn btn-default" ng-click="clearDates()">Wyczyść</div>
+                            <div class="btn btn-default" ng-click="$ctrl.clearDates()">Wyczyść</div>
                         </div>
                     </div>
                 </div>
@@ -97,7 +92,7 @@
                         Liczba siedzeń: {{carRental.Car.NumberOfSeats}}<br/>
                         Cena: {{carRental.Car.PricePerDay}}
                     </div>
-                    <div class="btn btn-default" ng-click="openOrderModal($index)">Rezerwacja</div>
+                    <div class="btn btn-default" ng-click="openOrderModal($index, carRental.Car.Id)">Rezerwacja</div>
 
                 </div>
             </uib-accordion>

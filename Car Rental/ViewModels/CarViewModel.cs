@@ -11,6 +11,8 @@ namespace Car_Rental.ViewModels
             this.CarDetails = new CarDetailsViewModel();
         }
 
+        public int Id { get; set; }
+
         public string CarImageUrl { get; set; }
 
         public string Brand { get; set; }

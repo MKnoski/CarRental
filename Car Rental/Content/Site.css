@@ -29,6 +29,12 @@ textarea {
     color: black;
   }
 
+.taken button span {
+    background-color: orangered;
+    border-radius: 32px;
+    color: black;    
+}
+
 .row-eq-height {
 	display: -webkit-box;
 	display: -webkit-flex;
