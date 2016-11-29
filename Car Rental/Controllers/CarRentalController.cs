@@ -36,6 +36,7 @@ namespace Car_Rental.Controllers
         {
             if (!User.Identity.IsAuthenticated)
             {
+                HttpContext.Items["SuppressAuthenticationKey"] = true;
                 return new HttpStatusCodeResult(HttpStatusCode.Unauthorized);
             }
 

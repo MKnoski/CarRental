@@ -19,5 +19,19 @@ namespace Car_Rental
 
             AutoMapperConfig.Configure();
         }
+
+        protected void Application_EndRequest(object sender, EventArgs e)
+        {
+            var context = (HttpApplication)sender;
+            var response = context.Response;
+
+            if (context.Context.Items.Contains("SuppressAuthenticationKey"))
+            {
+                response.TrySkipIisCustomErrors = true;
+                response.ClearContent();
+                response.StatusCode = 401;
+                response.RedirectLocation = null;
+            }
+        }
     }
 }

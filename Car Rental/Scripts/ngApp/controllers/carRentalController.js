@@ -6,6 +6,7 @@
     $scope.newRental.dates['start'] = new Date();
     $scope.newRental.dates['end'] = new Date();
     $scope.setDate = 'start';
+    $scope.cost = { cost: 0 };
 
     var compareDate = function (data, rentals) {
         if (data.mode !== 'day') {
@@ -53,6 +54,7 @@
                     if (startDate < $scope.newRental.dates['end'] && startDate > $scope.newRental.dates['start'])
                         $scope.newRental.dates['end'].setMonth(startDate.getMonth(), startDate.getDate() - 1);
                 });
+                $scope.cost.cost = ($scope.newRental.dates['end'] - $scope.newRental.dates['start']) / 86400000 * carRental.Car.PricePerDay;
             }
         });
     });
@@ -68,6 +70,7 @@
                         //$scope.$apply();
                     }
                 });
+                $scope.cost.cost = ($scope.newRental.dates['end'] - $scope.newRental.dates['start']) / 86400000 * carRental.Car.PricePerDay;
             }
         });
     });
@@ -103,6 +106,10 @@
                     return datepickerOptions;
                 },
                 newRental: $scope.newRental,
+                car: function() {
+                    return { Brand: $scope.carRentals[itemId].Car.Brand, Model: $scope.carRentals[itemId].Car.Model }
+                },
+                cost: $scope['cost']
             }
         });
 
@@ -119,17 +126,21 @@
                     StartDate: '/Date(' + $scope.newRental.dates.start.getTime() + ')/',
                     EndDate: '/Date(' + $scope.newRental.dates.end.getTime() + ')/'
             });
-            }).error(function(data) {
-                location.href = "/Account/Login";
+            }).error(function (data, code) {
+                if (code === 401) {
+                    location.href = "/Account/Login";
+                }
             });
         });
 
     }
-}]).controller('ModalInstanceCtrl', function ($uibModalInstance, datepickerOptions, newRental) {
+}]).controller('ModalInstanceCtrl', function ($uibModalInstance, datepickerOptions, newRental, car, cost) {
     var $ctrl = this;
     $ctrl.setDate = 'start';
     $ctrl.datepickerOptions = datepickerOptions;
     $ctrl.newRental = newRental;
+    $ctrl.car = car;
+    $ctrl.cost = cost;
 
     $ctrl.ok = function () {
         $uibModalInstance.close();
