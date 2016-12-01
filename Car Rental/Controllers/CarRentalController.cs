@@ -27,7 +27,6 @@ namespace Car_Rental.Controllers
         public JsonResult GetRentals()
         {
             var viewModel = this.carRentalsQuery.GetCarRentals();
-
             return Json(viewModel, JsonRequestBehavior.AllowGet);
         }
 
@@ -41,11 +40,9 @@ namespace Car_Rental.Controllers
             }
 
             var userId = this.User.Identity.GetUserId();
-
             model.ApplicationUserId = userId;
 
             this.carRentalsCommand.AddCarRental(model);
-            
             return new HttpStatusCodeResult(HttpStatusCode.OK);
         }
     }
