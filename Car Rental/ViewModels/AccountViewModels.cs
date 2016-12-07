@@ -56,10 +56,10 @@ namespace Car_Rental.ViewModels
 
         [Required]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Hasło")]
         public string Password { get; set; }
 
-        [Display(Name = "Remember me?")]
+        [Display(Name = "Pamiętaj mnie?")]
         public bool RememberMe { get; set; }
     }
 
