@@ -103,3 +103,7 @@ dl {
 dd, dt {
     display: -webkit-inline-box;
 }
+
+:focus{
+    outline: none;
+}

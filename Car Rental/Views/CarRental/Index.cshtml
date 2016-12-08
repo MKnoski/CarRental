@@ -12,13 +12,15 @@
                     <h3 class="modal-title" id="modal-title">Zarezerwuj {{$ctrl.car.Brand}} {{$ctrl.car.Model}}</h3>
                 </div>
                 <div class="modal-body" id="modal-body">
-                    <div class="row">
-                        <div class="col-md-6">
+                    <div class="row" ng-if="$ctrl.test.test">
+                        <div class="col-md-5">
+                            <div ng-show="$ctrl.setDate=='start'"><h4>Wybierz datę początku</h4></div>
+                            <div ng-show="$ctrl.setDate=='end'"><h4>Wybierz datę końca</h4></div>
                             <div style="display: inline-block; ">
                                 <div uib-datepicker ng-model="$ctrl.newRental.dates[$ctrl.setDate]" ng-model-options="{ allowInvalid: true}" class="well well-sm" datepicker-options="$ctrl.datepickerOptions"></div>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <h4>Twoja rezerwacja</h4>
                             Data rozpoczęcia:
                             <div class="input-group">
@@ -35,7 +37,65 @@
                                 <input type="date" class="form-control" aria-label="..." ng-model="$ctrl.newRental.dates['end']" ng-change="$ctrl.setDate='end'">
                             </div>
                             <br />
-                            <h4>Koszt: {{$ctrl.cost.cost | number:2}}</h4>
+                            Miejsce odbioru:
+                            <select class="form-control" ng-model="$ctrl.newRental.receptionPlace">
+                                <option ng-repeat="city in $ctrl.cities">{{city}}</option>
+                            </select>
+                            <br/>
+                            Miejsce zwrotu:
+                            <select class="form-control" ng-model="$ctrl.newRental.returnPlace">
+                                <option ng-repeat="city in $ctrl.cities">{{city}}</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3" style="margin-top: 130px; text-align: center">
+                            <h4>
+                                Koszt:
+                                <br/><br/>
+                                {{$ctrl.cost.cost | number:2}}
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="row" ng-if="!$ctrl.test.test">
+                        <div class="col-md-5">
+                            <div ng-show="$ctrl.setDate=='start'"><h4>Wybierz datę początku</h4></div>
+                            <div ng-show="$ctrl.setDate=='end'"><h4>Wybierz datę końca</h4></div>
+                            <div style="display: inline-block; ">
+                                <div uib-datepicker ng-model="$ctrl.newRental.dates[$ctrl.setDate]" ng-model-options="{ allowInvalid: true}" class="well well-sm" datepicker-options="$ctrl.datepickerOptions"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <h4>Twoja rezerwacja</h4>
+                            Data rozpoczęcia:
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <input type="radio" aria-label="..." ng-model="$ctrl.setDate" value="start">
+                                </span>
+                                <input type="date" class="form-control" aria-label="..." ng-model="$ctrl.newRental.dates['start']" ng-change="$ctrl.setDate='start'">
+                            </div><br />
+                            Data zakończenia:
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <input type="radio" aria-label="..." ng-model="$ctrl.setDate" value="end">
+                                </span>
+                                <input type="date" class="form-control" aria-label="..." ng-model="$ctrl.newRental.dates['end']" ng-change="$ctrl.setDate='end'">
+                            </div>
+                            <br />
+                            Miejsce odbioru:
+                            <select class="form-control" ng-model="$ctrl.newRental.receptionPlace">
+                                <option ng-repeat="city in $ctrl.cities">{{city}}</option>
+                            </select>
+                            <br />
+                            Miejsce zwrotu:
+                            <select class="form-control" ng-model="$ctrl.newRental.returnPlace">
+                                <option ng-repeat="city in $ctrl.cities">{{city}}</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3" style="margin-top: 130px; text-align: center">
+                            <h4>
+                                Koszt:
+                                <br /><br />
+                                {{$ctrl.cost.cost | number:2}}
+                            </h4>
                         </div>
                     </div>
                 </div>
@@ -64,28 +124,39 @@
                             </div>
                         </div>
                     </uib-accordion-heading>
-
+                    
                     <div class="col-md-4">
                         <div style="display: inline-block;">
-                            <div uib-datepicker ng-model="newRental.dates[(setDate)]" class="well well-sm" datepicker-options="carRental.datepickerOptions"></div>
+                            <div uib-datepicker ng-model="null" class="well well-sm" datepicker-options="carRental.datepickerOptions"></div>
                         </div>
                     </div>
-                    <div class="col-md-4" style="margin-top: 50px">
-                        
-                            <div class="col-lg-6" style="text-align: right; margin-bottom: 10px">Rocznik:</div>
-                            <div class="col-lg-6" style="margin-bottom: 20px">{{carRental.Car.CarDetails.Yearbook}}</div>
+                    <div class="col-sm-6" style="margin-top: 50px">
 
-                            <div class="col-lg-6" style="text-align: right; margin-bottom: 10px">Skrzynia biegów:</div>
-                            <div class="col-lg-6" style="margin-bottom: 20px">{{carRental.Car.CarDetails.Transmission}}</div>
-                        
-                            <div class="col-lg-6" style="text-align: right; margin-bottom: 10px">Zużycie paliwa:</div>
-                            <div class="col-lg-6"style="margin-bottom: 20px">{{carRental.Car.CarDetails.FuelConsumption}}</div>
-                       
-                            <div class="col-lg-6" style="text-align: right; margin-bottom: 10px">Liczba drzwi:</div>
-                            <div class="col-lg-6"style="margin-bottom: 20px">{{carRental.Car.CarDetails.NumberOfDoors}}</div>
+                        <div class="col-xs-6" style="text-align: right">Rocznik:</div>
+                        <div class="col-xs-6">{{carRental.Car.CarDetails.Yearbook}}</div>
+
+                        <div class="col-xs-6" style="text-align: right">Skrzynia biegów:</div>
+                        <div class="col-xs-6">{{carRental.Car.CarDetails.Transmission}}</div>
+
+                        <div class="col-xs-6" style="text-align: right">Zużycie paliwa:</div>
+                        <div class="col-xs-6">{{carRental.Car.CarDetails.FuelConsumption}}</div>
+
+                        <div class="col-xs-6" style="text-align: right">Rodzaj paliwa:</div>
+                        <div class="col-xs-6">{{carRental.Car.CarDetails.Fuel}}</div>
+
+                        <div class="col-xs-6" style="text-align: right">Typ:</div>
+                        <div class="col-xs-6">{{carRental.Car.CarDetails.Type}}</div>
+
+                        <div class="col-xs-6" style="text-align: right">Liczba drzwi:</div>
+                        <div class="col-xs-6">{{carRental.Car.CarDetails.NumberOfDoors}}</div>
+
+                        <div class="col-xs-6" style="text-align: right">Dodatkowe informacje:</div>
+                        <div class="col-xs-6">{{carRental.Car.CarDetails.AdditionalFeatures}}</div>
+
                     </div>
-                    <div class="btn btn-default" style="margin-top: 110px" ng-click="openOrderModal($index, carRental.Car.Id)">Rezerwacja</div>
-
+                    <div class="col-xs-2">
+                        <div class="btn btn-default" style="margin-top: 110px" ng-click="openOrderModal($index, carRental.Car.Id)">Rezerwacja</div>
+                    </div>
                 </div>
             </uib-accordion>
         </div>

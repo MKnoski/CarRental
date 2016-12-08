@@ -7,7 +7,7 @@ namespace CarRental.Data.Context
     public class CarRentalContext : IdentityDbContext<ApplicationUser>
     {
         public CarRentalContext() 
-            : base ("CarRental2")
+            : base ("CarRental")
         {
             this.Configuration.LazyLoadingEnabled = false;
         }
