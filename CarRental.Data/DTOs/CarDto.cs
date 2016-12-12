@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
 using CarRental.Data.Models;
+using System;
 
 namespace CarRental.Data.DTOs
 {
     public class CarDto
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
         public string Type { get; set; }
 

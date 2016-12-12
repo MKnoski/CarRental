@@ -7,7 +7,8 @@ namespace CarRental.Data.Models
     public class Rental 
     {
         [Key]
-        public int Id { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public Guid Id { get; set; }
 
         [Required]
         public DateTime StartDate { get; set; }
@@ -20,7 +21,7 @@ namespace CarRental.Data.Models
         public string ReturnPlace { get; set; }
 
         [ForeignKey("Car")]
-        public int CarId { get; set; }
+        public Guid CarId { get; set; }
 
         public virtual Car Car { get; set; }
 

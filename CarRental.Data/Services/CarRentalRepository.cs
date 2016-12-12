@@ -6,12 +6,13 @@ using System.Linq;
 using AutoMapper;
 using CarRental.Data.DTOs;
 using CarRental.Data.Services.Interfaces;
+using System;
 
 namespace CarRental.Data.Services
 {
     public class CarRentalRepository : ICarRentalRepository
     {
-        public CarDto GetCar(int id)
+        public CarDto GetCar(Guid id)
         {
             using (var context = new CarRentalContext())
             {

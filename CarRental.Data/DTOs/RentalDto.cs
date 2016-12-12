@@ -4,7 +4,7 @@ namespace CarRental.Data.DTOs
 {
     public class RentalDto
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
         public DateTime StartDate { get; set; }
 
@@ -14,7 +14,7 @@ namespace CarRental.Data.DTOs
 
         public string ReturnPlace { get; set; }
 
-        public int CarId { get; set; }
+        public Guid CarId { get; set; }
 
         public string ApplicationUserId { get; set; }
     }

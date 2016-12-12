@@ -8,7 +8,7 @@ namespace Car_Rental.Models
     {
         public string ApplicationUserId { get; set; }
 
-        public int CarId { get; set; }
+        public Guid CarId { get; set; }
 
         [Required]
         public DateTime StartDate { get; set; }

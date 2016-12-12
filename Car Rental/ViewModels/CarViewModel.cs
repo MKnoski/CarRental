@@ -1,4 +1,6 @@
-﻿namespace Car_Rental.ViewModels
+﻿using System;
+
+namespace Car_Rental.ViewModels
 {
     public class CarViewModel
     {
@@ -7,7 +9,7 @@
             this.CarDetails = new CarDetailsViewModel();
         }
 
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
         public string CarImageUrl { get; set; }
 
